@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/app/data/models/post.dart';
-import 'package:flutter_getx_template/app/modules/post/views/new_post.dart';
 import 'package:flutter_getx_template/app/modules/post/widgets/post_card_item.dart';
 
 import 'package:get/get.dart';
@@ -18,14 +17,7 @@ class PostView extends GetView<PostController> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () async {
-              await showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.black54,
-                context: context,
-                builder: (ctx) => NewPostPage(),
-              );
-            },
+            onPressed: controller.openNewPostBottomSheet,
             icon: Icon(Icons.add),
             tooltip: 'Insert new post',
           ),
