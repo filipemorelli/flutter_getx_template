@@ -16,7 +16,11 @@ class PostsView extends GetView<PostsController> {
         title: Text('ScreetWall App'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.add),
+            tooltip: 'Insert new post',
+          ),
         ],
       ),
       body: RefreshIndicator(
