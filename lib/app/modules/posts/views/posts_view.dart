@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/app/data/models/post.dart';
+import 'package:flutter_getx_template/app/modules/posts/widgets/post_card_item.dart';
 
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../controllers/posts_controller.dart';
 
@@ -26,13 +28,11 @@ class PostsView extends GetView<PostsController> {
             itemCount: controller.posts.length,
             itemBuilder: (context, i) {
               Post post = controller.posts[i];
-              return Card(
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                child: ListTile(
-                  key: Key('${post.id}'),
-                  title: Text(post.text),
-                  subtitle: Text(post.createdAt.toString()),
-                ),
+              return PostCardItem(
+                id: post.id.toString(),
+                text: post.text,
+                createdAt:
+                    DateFormat.yMd().add_Hms().format(post.createdAtDatetime),
               );
             },
           ),
