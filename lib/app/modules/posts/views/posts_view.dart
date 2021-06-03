@@ -11,6 +11,9 @@ class PostsView extends GetView<PostsController> {
       appBar: AppBar(
         title: Text('PostsView'),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+        ],
       ),
       body: Center(
         child: Text(
