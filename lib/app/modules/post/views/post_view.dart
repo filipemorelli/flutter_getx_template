@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/app/data/models/post.dart';
-import 'package:flutter_getx_template/app/modules/posts/widgets/post_card_item.dart';
+import 'package:flutter_getx_template/app/modules/post/widgets/post_card_item.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../controllers/posts_controller.dart';
+import '../controllers/post_controller.dart';
 
-class PostsView extends GetView<PostsController> {
+class PostView extends GetView<PostController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

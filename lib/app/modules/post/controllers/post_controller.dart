@@ -3,10 +3,10 @@ import 'package:flutter_getx_template/app/data/models/post.dart';
 import 'package:flutter_getx_template/app/repositories/post_repository.dart';
 import 'package:get/get.dart';
 
-class PostsController extends GetxController {
+class PostController extends GetxController {
   final IPostRepository _repository;
 
-  PostsController(this._repository);
+  PostController(this._repository);
 
   final posts = <Post>[].obs;
   final GlobalKey<ScaffoldMessengerState> scaffoldKey =

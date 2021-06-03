@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import 'package:flutter_getx_template/app/modules/posts/bindings/posts_binding.dart';
-import 'package:flutter_getx_template/app/modules/posts/views/posts_view.dart';
+import 'package:flutter_getx_template/app/modules/post/bindings/post_binding.dart';
+import 'package:flutter_getx_template/app/modules/post/views/post_view.dart';
 
 part 'app_routes.dart';
 
@@ -13,8 +13,8 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.POSTS,
-      page: () => PostsView(),
-      binding: PostsBinding(),
+      page: () => PostView(),
+      binding: PostBinding(),
     ),
   ];
 }
