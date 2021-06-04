@@ -19,4 +19,17 @@ class F {
         return 'title';
     }
   }
+
+  static String get serverUrl {
+    switch (appFlavor) {
+      case Flavor.DEV:
+        return 'http://192.168.2.110:3000/';
+      case Flavor.QA:
+        return 'http://192.168.2.110:4000/';
+      case Flavor.PROD:
+        return 'http://192.168.2.110:8080/';
+      default:
+        return '';
+    }
+  }
 }

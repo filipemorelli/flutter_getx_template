@@ -8,7 +8,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: AppBinding(),
+      debugShowCheckedModeBanner: false,
+      initialBinding: AppBinding(F.serverUrl),
       title: F.title,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
