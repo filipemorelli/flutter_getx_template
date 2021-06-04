@@ -51,6 +51,12 @@ class PostController extends GetxController {
     Get.bottomSheet(
       NewPostPage(),
       backgroundColor: Colors.black54,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(5),
+          topRight: Radius.circular(5),
+        ),
+      ),
     );
   }
 
