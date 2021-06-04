@@ -13,6 +13,7 @@ dependencies:
   dio: ^4.0.0
   json_annotation: ^4.0.1
   intl: ^0.17.0
+  flutter_flavorizr: ^2.0.0
 
 dev_dependencies: 
   flutter_test: 
@@ -26,3 +27,37 @@ dev_dependencies:
 flutter: 
   uses-material-design: true
 
+flavorizr:
+  app:
+    android:
+      flavorDimensions: "flavor-type"
+    ios:
+
+  flavors:
+    dev:
+      app:
+        name: "SecretWall dev"
+
+      android:
+        applicationId: "com.example.flutter_getx_template.dev"
+
+      ios:
+        bundleId: "com.example.flutter_getx_template.dev"
+
+    qa:
+      app:
+        name: "SecretWall qa"
+
+      android:
+        applicationId: "com.example.flutter_getx_template.qa"
+      ios:
+        bundleId: "com.example.flutter_getx_template.qa"
+
+    prod:
+      app:
+        name: "SecretWall"
+
+      android:
+        applicationId: "com.example.flutter_getx_template"
+      ios:
+        bundleId: "com.example.flutter_getx_template"

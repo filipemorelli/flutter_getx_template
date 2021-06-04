@@ -4,6 +4,11 @@
       "id": 1,
       "text": "sample text",
       "createdAt": 1622734145402
+    },
+    {
+      "text": "test",
+      "createdAt": 1622827335492,
+      "id": 2
     }
   ]
 }

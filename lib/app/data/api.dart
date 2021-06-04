@@ -4,7 +4,7 @@ class Api {
   late Dio _dio;
 
   Api() {
-    _dio = Dio(BaseOptions(baseUrl: 'http://localhost:3000'));
+    _dio = Dio(BaseOptions(baseUrl: 'http://192.168.2.110:3000'));
     _interceptors();
   }
 
