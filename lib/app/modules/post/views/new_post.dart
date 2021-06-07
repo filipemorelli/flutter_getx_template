@@ -38,7 +38,7 @@ class NewPostPage extends GetView<PostController> {
                 () => controller.isSaving.value
                     ? const CenterLoading()
                     : ButtonWithIconFullSize(
-                        onPressed: controller.saveNewPost,
+                        onPressed: controller.addNewPost,
                         text: 'save',
                         icon: const Icon(Icons.add),
                       ),

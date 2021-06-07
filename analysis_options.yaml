@@ -44,6 +44,7 @@ analyzer:
     - "dev/conductor/lib/proto/*"
     - "lib/app/routes/app_routes.dart"
     - "lib/**/*.g.dart"
+    - "test/**/*.mocks.dart"
 
 linter:
   rules:

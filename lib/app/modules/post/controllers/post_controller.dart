@@ -24,20 +24,26 @@ class PostController extends GetxController {
   }
 
   @override
-  // ignore: unnecessary_overrides
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
   void onClose() {}
 
   Future<void> loadPosts() async {
     try {
+      await getPosts();
+    } catch (e) {
+      Get.rawSnackbar(
+        messageText: Text(
+          e.toString(),
+          style: const TextStyle(color: Colors.white),
+        ),
+      );
+    }
+  }
+
+  Future<void> getPosts() async {
+    try {
       posts.value = await _repository.getAll();
     } catch (e) {
-      scaffoldKey.currentState
-          ?.showSnackBar(SnackBar(content: Text(e.toString())));
+      return Future<void>.error(e);
     }
   }
 
@@ -61,17 +67,14 @@ class PostController extends GetxController {
     );
   }
 
-  Future<void> saveNewPost() async {
+  Future<void> addNewPost() async {
     try {
       isSaving.value = true;
       if (formKey.currentState!.validate()) {
-        await _repository.add(
-          text: textController.text,
-          createdAt: DateTime.now().millisecondsSinceEpoch,
-        );
-        textController.clear();
-        await loadPosts();
-        Get.back<void>();
+        addPost();
+        textController.clear(); // empty TextEditingController
+        await getPosts();
+        Get.back<void>(); // close bottomsheet
         await showAdaptiveDialog(
           title: 'Success',
           content: 'Your post was inserted with success!',
@@ -81,6 +84,17 @@ class PostController extends GetxController {
       Get.defaultDialog<void>(title: 'Error', content: Text(e.toString()));
     } finally {
       isSaving.value = false;
+    }
+  }
+
+  Future<Post> addPost() async {
+    try {
+      return _repository.add(
+        text: textController.text,
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+      );
+    } catch (e, stackTrace) {
+      return Future<Post>.error(e, stackTrace);
     }
   }
 }

@@ -13,7 +13,6 @@ class PostView extends GetView<PostController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: controller.scaffoldKey,
       appBar: AppBar(
         title: const Text('ScreetWall App'),
         centerTitle: true,
