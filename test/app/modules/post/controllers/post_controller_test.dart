@@ -36,7 +36,7 @@ void main() {
       when(repository.getAll())
           .thenAnswer((_) => Future<List<Post>>.error(Exception()));
 
-      expect(() async => controller.loadPosts(), throwsException);
+      expect(() async => controller.getPosts(), throwsException);
     });
 
     test('should return null when the params is valid', () async {
