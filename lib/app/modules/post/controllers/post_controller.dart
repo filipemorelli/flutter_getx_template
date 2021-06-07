@@ -6,15 +6,15 @@ import 'package:flutter_getx_template/app/ui/functions/show_adaptive_dialog.dart
 import 'package:get/get.dart';
 
 class PostController extends GetxController {
+  PostController(this._repository);
+
   final IPostRepository _repository;
-  final posts = <Post>[].obs;
+  final RxList<Post> posts = <Post>[].obs;
   final GlobalKey<ScaffoldMessengerState> scaffoldKey =
       GlobalKey<ScaffoldMessengerState>();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController textController = TextEditingController(text: '');
-  final isSaving = false.obs;
-
-  PostController(this._repository);
+  final RxBool isSaving = false.obs;
 
   @override
   void onInit() {
@@ -24,6 +24,7 @@ class PostController extends GetxController {
   }
 
   @override
+  // ignore: unnecessary_overrides
   void onReady() {
     super.onReady();
   }
@@ -48,10 +49,10 @@ class PostController extends GetxController {
   }
 
   void openNewPostBottomSheet() {
-    Get.bottomSheet(
-      NewPostPage(),
+    Get.bottomSheet<void>(
+      const NewPostPage(),
       backgroundColor: Colors.black54,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(5),
           topRight: Radius.circular(5),
@@ -70,14 +71,14 @@ class PostController extends GetxController {
         );
         textController.clear();
         await loadPosts();
-        Get.back();
+        Get.back<void>();
         await showAdaptiveDialog(
           title: 'Success',
           content: 'Your post was inserted with success!',
         );
       }
     } catch (e) {
-      Get.defaultDialog(title: 'Error', content: Text(e.toString()));
+      Get.defaultDialog<void>(title: 'Error', content: Text(e.toString()));
     } finally {
       isSaving.value = false;
     }

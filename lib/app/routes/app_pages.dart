@@ -8,12 +8,12 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.POSTS;
+  static const String INITIAL = Routes.POSTS;
 
-  static final routes = [
-    GetPage(
+  static final List<GetPage<dynamic>> routes = <GetPage<dynamic>>[
+    GetPage<dynamic>(
       name: _Paths.POSTS,
-      page: () => PostView(),
+      page: () => const PostView(),
       binding: PostBinding(),
     ),
   ];

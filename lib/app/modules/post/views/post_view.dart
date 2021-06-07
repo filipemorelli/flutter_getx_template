@@ -8,17 +8,19 @@ import 'package:intl/intl.dart';
 import '../controllers/post_controller.dart';
 
 class PostView extends GetView<PostController> {
+  const PostView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: controller.scaffoldKey,
       appBar: AppBar(
-        title: Text('ScreetWall App'),
+        title: const Text('ScreetWall App'),
         centerTitle: true,
-        actions: [
+        actions: <Widget>[
           IconButton(
             onPressed: controller.openNewPostBottomSheet,
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             tooltip: 'Insert new post',
           ),
         ],
@@ -28,10 +30,10 @@ class PostView extends GetView<PostController> {
         child: Obx(
           () => ListView.builder(
             physics: const AlwaysScrollableScrollPhysics(),
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             itemCount: controller.posts.length,
-            itemBuilder: (context, i) {
-              Post post = controller.posts[i];
+            itemBuilder: (BuildContext context, int i) {
+              final Post post = controller.posts[i];
               return PostCardItem(
                 id: post.id.toString(),
                 text: post.text,

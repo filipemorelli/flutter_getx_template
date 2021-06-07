@@ -8,7 +8,7 @@
             "name": "SecretWall DEV",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main-dev.dart",
+            "program": "lib/main_dev.dart",
             "args": [
                 "--flavor",
                 "dev"
@@ -18,7 +18,7 @@
             "name": "SecretWall QA",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main-qa.dart",
+            "program": "lib/main_qa.dart",
             "args": [
                 "--flavor",
                 "qa"
@@ -28,7 +28,7 @@
             "name": "SecretWall PROD",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main-prod.dart",
+            "program": "lib/main_prod.dart",
             "args": [
                 "--flavor",
                 "prod"

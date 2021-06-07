@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 class HeaderInputText extends StatelessWidget {
-  final String text;
-
-  HeaderInputText({
+  const HeaderInputText({
     Key? key,
     required this.text,
   }) : super(key: key);
 
+  final String text;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
       child: Text(
         text,
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
       ),
     );
   }

@@ -3,9 +3,9 @@ import 'package:flutter_getx_template/app/data/api.dart';
 import 'package:get/get.dart';
 
 class AppBinding implements Bindings {
-  String _baseUrl;
-
   AppBinding(this._baseUrl);
+
+  final String _baseUrl;
 
   @override
   void dependencies() {

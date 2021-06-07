@@ -1,8 +1,8 @@
 extension CapitalizeString on String {
   String get capitalizeFirst {
-    if (this.length > 1) {
-      return this[0].toUpperCase() + this.substring(1, this.length);
+    if (length > 1) {
+      return this[0].toUpperCase() + substring(1, length);
     }
-    return this.toUpperCase();
+    return toUpperCase();
   }
 }

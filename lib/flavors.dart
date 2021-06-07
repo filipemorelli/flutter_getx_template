@@ -4,6 +4,7 @@ enum Flavor {
   PROD,
 }
 
+// ignore: avoid_classes_with_only_static_members
 class F {
   static Flavor? appFlavor;
 

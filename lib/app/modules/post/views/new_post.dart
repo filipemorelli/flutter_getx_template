@@ -7,13 +7,15 @@ import 'package:flutter_getx_template/app/ui/widgets/center_loading.dart';
 import 'package:get/get.dart';
 
 class NewPostPage extends GetView<PostController> {
+  const NewPostPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 300,
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(20),
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(5),
@@ -27,18 +29,18 @@ class NewPostPage extends GetView<PostController> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              HeaderInputText(text: 'New Post'),
+              const HeaderInputText(text: 'New Post'),
               InputText(
                 textEditingController: controller.textController,
                 validator: controller.validateTextPost,
               ),
               Obx(
                 () => controller.isSaving.value
-                    ? CenterLoading()
+                    ? const CenterLoading()
                     : ButtonWithIconFullSize(
                         onPressed: controller.saveNewPost,
                         text: 'save',
-                        icon: Icon(Icons.add),
+                        icon: const Icon(Icons.add),
                       ),
               ),
             ],
