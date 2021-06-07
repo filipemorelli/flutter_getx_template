@@ -35,8 +35,9 @@ workflows:
       - |
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
-      - cp .env-sample .env
+      - cp .env-sample .env # simple .env
       - flutter packages pub get
+      - flutter pub run build_runner build
       - flutter analyze
       - flutter test
       - flutter build apk --release --flavor prod -t lib/main_prod.dart
