@@ -91,7 +91,7 @@ class PostController extends GetxController {
     try {
       return _repository.add(
         text: textController.text,
-        createdAt: DateTime.now().millisecondsSinceEpoch,
+        creationDate: DateTime.now().toString(),
       );
     } catch (e, stackTrace) {
       return Future<Post>.error(e, stackTrace);

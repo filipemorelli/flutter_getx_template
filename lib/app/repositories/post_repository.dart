@@ -6,7 +6,7 @@ abstract class IPostRepository {
 
   Future<Post> add({
     required String text,
-    required int createdAt,
+    required String creationDate,
   });
 
   Future<Post> edit(Post post);
@@ -22,14 +22,14 @@ class PostRepository extends IPostRepository {
   @override
   Future<Post> add({
     required String text,
-    required int createdAt,
+    required String creationDate,
   }) async {
     try {
       final Response<Map<String, dynamic>> result = await _dio.post(
         '/posts',
         data: <String, dynamic>{
           'text': text,
-          'createdAt': createdAt,
+          'creation-date': creationDate,
         },
       );
       return Post.fromJson(result.data ?? <String, dynamic>{});

@@ -6,7 +6,7 @@ class Post {
   Post({
     required this.id,
     required this.text,
-    required this.createdAt,
+    required this.creationDate,
   });
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
@@ -14,11 +14,10 @@ class Post {
   int id;
   @JsonKey(defaultValue: '')
   String text;
-  @JsonKey(defaultValue: 0)
-  int createdAt;
+  @JsonKey(defaultValue: '', name: 'creation-date')
+  String creationDate;
 
   Map<String, dynamic> toJson() => _$PostToJson(this);
 
-  DateTime get createdAtDatetime =>
-      DateTime.fromMillisecondsSinceEpoch(createdAt);
+  DateTime get createdAtDatetime => DateTime.parse(creationDate);
 }

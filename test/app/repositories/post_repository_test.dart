@@ -49,11 +49,11 @@ void main() {
     test('should return add new post and return post with id', () async {
       const int id = 1;
       final String text = Faker().randomGenerator.string(50, min: 10);
-      final int createdAt = Faker().date.dateTime().millisecondsSinceEpoch;
+      final String creationDate = Faker().date.dateTime().toString();
       final Map<String, dynamic> data = <String, dynamic>{
         'id': id,
         'text': text,
-        'createdAt': createdAt,
+        'creation-date': creationDate,
       };
       dioAdapter.onPost(
         '/posts',
@@ -62,21 +62,21 @@ void main() {
       );
 
       final Post result =
-          await repository.add(text: text, createdAt: createdAt);
+          await repository.add(text: text, creationDate: creationDate);
       expect(result, isA<Post>());
       expect(result.text, text);
-      expect(result.createdAt, createdAt);
+      expect(result.creationDate, creationDate);
       expect(result.id, id);
     });
 
     test('should return updated post content', () async {
       const int id = 1;
       final String text = Faker().randomGenerator.string(50, min: 10);
-      final int createdAt = Faker().date.dateTime().millisecondsSinceEpoch;
+      final String creationDate = Faker().date.dateTime().toString();
       final Map<String, dynamic> data = <String, dynamic>{
         'id': id,
         'text': text,
-        'createdAt': createdAt,
+        'creation-date': creationDate,
       };
       final Post post = Post.fromJson(data);
       post.text = Faker().randomGenerator.string(100, min: 51);
@@ -91,7 +91,7 @@ void main() {
       final Post result = await repository.edit(post);
       expect(result, isA<Post>());
       expect(result.text, post.text);
-      expect(result.createdAt, post.createdAt);
+      expect(result.creationDate, post.creationDate);
       expect(result.id, post.id);
     });
 

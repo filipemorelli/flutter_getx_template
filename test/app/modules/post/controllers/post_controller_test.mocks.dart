@@ -31,9 +31,10 @@ class MockIPostRepository extends _i1.Mock implements _i3.IPostRepository {
               returnValue: Future<List<_i2.Post>>.value(<_i2.Post>[]))
           as _i4.Future<List<_i2.Post>>);
   @override
-  _i4.Future<_i2.Post> add({String? text, int? createdAt}) =>
+  _i4.Future<_i2.Post> add({String? text, String? creationDate}) =>
       (super.noSuchMethod(
-              Invocation.method(#add, [], {#text: text, #createdAt: createdAt}),
+              Invocation.method(
+                  #add, [], {#text: text, #creationDate: creationDate}),
               returnValue: Future<_i2.Post>.value(_FakePost()))
           as _i4.Future<_i2.Post>);
   @override

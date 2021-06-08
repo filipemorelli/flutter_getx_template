@@ -24,7 +24,7 @@ void main() {
     test('should return list of posts', () async {
       when(repository.getAll()).thenAnswer(
         (_) async => <Post>[
-          Post(id: 1, text: 'text', createdAt: 0),
+          Post(id: 1, text: 'text', creationDate: ''),
         ],
       );
 
@@ -60,11 +60,11 @@ void main() {
       final Post post = Post(
         id: Faker().randomGenerator.integer(1),
         text: Faker().randomGenerator.string(50),
-        createdAt: Faker().date.dateTime().millisecondsSinceEpoch,
+        creationDate: Faker().date.dateTime().toString(),
       );
       when(repository.add(
         text: anyNamed('text'),
-        createdAt: anyNamed('createdAt'),
+        creationDate: anyNamed('createdAt'),
       )).thenAnswer((_) async => post);
       when(repository.getAll()).thenAnswer((_) async => <Post>[post]);
 
