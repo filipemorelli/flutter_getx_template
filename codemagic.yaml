@@ -41,8 +41,8 @@ workflows:
       - flutter analyze
       - flutter test
       - flutter build apk --release --flavor prod -t lib/main_prod.dart
-      - find . -name "Podfile" -execdir pod install \;
-      - flutter build ios --release --no-codesign
+      # - find . -name "Podfile" -execdir pod install \;
+      # - flutter build ios --release --no-codesign
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
