@@ -24,7 +24,10 @@ class PostController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    posts.close();
+    isSaving.close();
+  }
 
   Future<void> loadPosts() async {
     try {
@@ -81,7 +84,7 @@ class PostController extends GetxController {
         );
       }
     } catch (e) {
-      Get.defaultDialog<void>(title: 'Error', content: Text(e.toString()));
+      showAdaptiveDialog(title: 'Error', content: e.toString());
     } finally {
       isSaving.value = false;
     }
