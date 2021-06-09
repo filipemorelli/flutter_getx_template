@@ -64,7 +64,7 @@ void main() {
       );
       when(repository.add(
         text: anyNamed('text'),
-        creationDate: anyNamed('createdAt'),
+        creationDate: anyNamed('creationDate'),
       )).thenAnswer((_) async => post);
       when(repository.getAll()).thenAnswer((_) async => <Post>[post]);
 
