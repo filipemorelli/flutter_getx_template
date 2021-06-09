@@ -118,7 +118,6 @@ workflows:
       flutter: 2.2.0
       xcode: latest
       cocoapods: default
-        cache:
     cache_paths:
       - $HOME/Library/Caches/CocoaPods
       - $HOME/.gradle/caches
