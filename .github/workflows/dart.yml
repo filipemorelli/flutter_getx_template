@@ -13,29 +13,35 @@ on:
 
 jobs:
   build:
+    # This job will run on ubuntu virtual machine
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
-      - name: create one .env
-        run: cp .env-sample .env
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: execute build_runner
-        run: flutter pub run build_runner build --delete-conflicting-outputs
-      
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
-
-      - name: Run tests
-        run: dart test
+    
+    # Setup Java environment in order to build the Android app.
+    - uses: actions/checkout@v1
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    
+    # Setup the flutter environment.
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: 'stable' # 'dev', 'alpha', default to: 'stable'
+        flutter-version: '2.2.0' # you can also specify exact version of flutter
+    
+    - name: create one .env
+      run: cp .env-sample .env
+    
+    - name: Get flutter dependencies.
+      run: flutter pub get
+    
+    - name: execute build_runner
+      run: flutter pub run build_runner build --delete-conflicting-outputs
+    
+    # Statically analyze the Dart code for any errors.
+    - name: Flutter analyze
+      run: flutter analyze .
+    
+    # Run widget tests for our flutter project.
+    - name: Flutter test
+      run: flutter test
