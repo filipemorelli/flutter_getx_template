@@ -74,7 +74,7 @@ workflows:
           else
               echo "Publishing $apkPath to App Center"
               appcenter distribute release \
-                  --group Collaborators \
+                  --group 'Collaborators Prod' \
                   --file "${apkPath}" \
                   --release-notes 'App submission via Codemagic' \
                   --app $APP_CENTER_USERNAME_ORGANIZATION/$APP_CENTER_PROJECT \
@@ -91,7 +91,7 @@ workflows:
           # else
           #     echo "Publishing $ipaPath to App Center"
           #     appcenter distribute release \
-          #         --group Collaborators \
+          #         --group 'Collaborators Prod' \
           #         --file "${ipaPath}" \
           #         --release-notes 'App submission via Codemagic' \
           #         --app $APP_CENTER_USERNAME_ORGANIZATION/$APP_CENTER_PROJECT \
@@ -170,7 +170,7 @@ workflows:
           else
               echo "Publishing $apkPath to App Center"
               appcenter distribute release \
-                  --group Collaborators \
+                  --group 'Collaborators QA' \
                   --file "${apkPath}" \
                   --release-notes 'App submission via Codemagic' \
                   --app $APP_CENTER_USERNAME_ORGANIZATION/$APP_CENTER_PROJECT \
@@ -187,7 +187,7 @@ workflows:
           # else
           #     echo "Publishing $ipaPath to App Center"
           #     appcenter distribute release \
-          #         --group Collaborators \
+          #         --group 'Collaborators QA' \
           #         --file "${ipaPath}" \
           #         --release-notes 'App submission via Codemagic' \
           #         --app $APP_CENTER_USERNAME_ORGANIZATION/$APP_CENTER_PROJECT \
