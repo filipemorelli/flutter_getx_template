@@ -118,7 +118,7 @@ workflows:
       events:
         - pull_request
       branch_patterns:
-        - pattern: dev
+        - pattern: develop
           include: true
           source: true
     scripts:
