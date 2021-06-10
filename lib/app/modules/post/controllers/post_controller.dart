@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/app/data/models/post.dart';
 import 'package:flutter_getx_template/app/modules/post/views/new_post.dart';
-import 'package:flutter_getx_template/app/repositories/post_repository.dart';
+import 'package:flutter_getx_template/app/repositories/i_post_repository.dart';
 import 'package:flutter_getx_template/app/ui/functions/show_adaptive_dialog.dart';
 import 'package:get/get.dart';
 
