@@ -1,11 +1,11 @@
 import 'package:faker/faker.dart';
+import 'package:flutter_getx_template/app/repositories/i_post_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'package:flutter_getx_template/app/data/models/post.dart';
 import 'package:flutter_getx_template/app/modules/post/controllers/post_controller.dart';
-import 'package:flutter_getx_template/app/repositories/post_repository.dart';
 
 import './post_controller_test.mocks.dart';
 
