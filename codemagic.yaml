@@ -22,10 +22,7 @@ workflows:
       events:
         - pull_request
       branch_patterns:
-        - pattern: develop
-          include: true
-          source: true
-        - pattern: hotfix/*
+        - pattern: master
           include: true
           source: true
     scripts:
@@ -121,7 +118,7 @@ workflows:
       events:
         - pull_request
       branch_patterns:
-        - pattern: *
+        - pattern: develop
           include: true
           source: true
     scripts:
