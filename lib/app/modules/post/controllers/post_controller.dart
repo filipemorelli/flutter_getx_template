@@ -74,7 +74,7 @@ class PostController extends GetxController {
     try {
       isSaving.value = true;
       if (formKey.currentState!.validate()) {
-        addPost();
+        await addPost();
         textController.clear(); // empty TextEditingController
         await getPosts();
         Get.back<void>(); // close bottomsheet
