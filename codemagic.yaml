@@ -20,9 +20,12 @@ workflows:
       cocoapods: default
     triggering:
       events:
-        - push
+        - pull_request
       branch_patterns:
-        - pattern: master
+        - pattern: develop
+          include: true
+          source: true
+        - pattern: hotfix/*
           include: true
           source: true
     scripts:
@@ -116,9 +119,9 @@ workflows:
       cocoapods: default
     triggering:
       events:
-        - push
+        - pull_request
       branch_patterns:
-        - pattern: develop
+        - pattern: *
           include: true
           source: true
     scripts:
