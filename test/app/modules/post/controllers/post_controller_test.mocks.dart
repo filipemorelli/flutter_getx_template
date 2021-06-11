@@ -5,7 +5,7 @@
 import 'dart:async' as _i4;
 
 import 'package:flutter_getx_template/app/data/models/post.dart' as _i2;
-import 'package:flutter_getx_template/app/repositories/post_repository.dart'
+import 'package:flutter_getx_template/app/repositories/i_post_repository.dart'
     as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 

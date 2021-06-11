@@ -1,18 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_getx_template/app/data/models/post.dart';
-
-abstract class IPostRepository {
-  Future<List<Post>> getAll();
-
-  Future<Post> add({
-    required String text,
-    required String creationDate,
-  });
-
-  Future<Post> edit(Post post);
-
-  Future<bool> delete(int id);
-}
+import 'package:flutter_getx_template/app/repositories/i_post_repository.dart';
 
 class PostRepository extends IPostRepository {
   PostRepository(this._dio);
