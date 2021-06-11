@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/app/data/models/post.dart';
+import 'package:flutter_getx_template/app/modules/post/controllers/post_controller.dart';
 import 'package:flutter_getx_template/app/modules/post/widgets/post_card_item.dart';
 import 'package:flutter_getx_template/app/ui/widgets/refresh_list_adaptive.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
-import '../controllers/post_controller.dart';
 
 class PostView extends GetView<PostController> {
   const PostView({Key? key}) : super(key: key);
