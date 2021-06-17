@@ -1,3 +1,8 @@
+import 'package:flutter_getx_template/app/env/env.dart';
+import 'package:flutter_getx_template/app/env/env_dev.dart';
+import 'package:flutter_getx_template/app/env/env_prod.dart';
+import 'package:flutter_getx_template/app/env/env_qa.dart';
+
 enum Flavor {
   DEV,
   QA,
@@ -8,16 +13,16 @@ enum Flavor {
 class F {
   static Flavor? appFlavor;
 
-  static String get env {
+  static Env get env {
     switch (appFlavor) {
       case Flavor.DEV:
-        return '.env-dev';
+        return Env.fromJson(envDev);
       case Flavor.QA:
-        return '.env-qa';
+        return Env.fromJson(envQa);
       case Flavor.PROD:
-        return '.env-prod';
+        return Env.fromJson(envProd);
       default:
-        return '.env';
+        return Env.fromJson(envProd);
     }
   }
 }

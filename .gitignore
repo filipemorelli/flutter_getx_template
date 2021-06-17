@@ -30,8 +30,6 @@
 .pub-cache/
 .pub/
 /build/
-.env
-lib/app/env/env.g.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
