@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/app/bindings/app_binding.dart';
-import 'package:flutter_getx_template/app/env/env.dart';
 import 'package:flutter_getx_template/app/routes/app_pages.dart';
+import 'package:flutter_getx_template/flavors.dart';
 import 'package:get/get.dart';
 
 class App extends StatelessWidget {
@@ -11,8 +11,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialBinding: AppBinding(Env.serverHost),
-      title: Env.title,
+      initialBinding: AppBinding(F.env.serverHost),
+      title: F.env.title,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     );
