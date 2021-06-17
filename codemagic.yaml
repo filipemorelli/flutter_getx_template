@@ -18,14 +18,16 @@ workflows:
       flutter: 2.2.0
       xcode: latest
       cocoapods: default
+    cache:
+      cache_paths:
+        - $FLUTTER_ROOT/.pub-cache
+        - $FCI_BUILD_DIR/ios/Pods
+        - $FCI_BUILD_DIR/android/.gradle
     triggering:
       events:
-        - pull_request
+        - push
       branch_patterns:
-        - pattern: develop
-          include: true
-          source: true
-        - pattern: 'hotfix/*'
+        - pattern: master
           include: true
           source: true
     scripts:
@@ -117,17 +119,16 @@ workflows:
       flutter: 2.2.0
       xcode: latest
       cocoapods: default
+    cache:
+      cache_paths:
+        - $FLUTTER_ROOT/.pub-cache
+        - $FCI_BUILD_DIR/ios/Pods
+        - $FCI_BUILD_DIR/android/.gradle
     triggering:
       events:
-        - pull_request
+        - push
       branch_patterns:
-        - pattern: 'feature/*'
-          include: true
-          source: true
-        - pattern: 'bugfix/*'
-          include: true
-          source: true
-        - pattern: 'support/*'
+        - pattern: 'develop'
           include: true
           source: true
     scripts:
@@ -203,4 +204,38 @@ workflows:
           #         --token "${APP_CENTER_TOKEN}" \
           #         --quiet
           # fi
-
+  tests:
+    name: tests
+    max_build_duration: 60
+    environment:
+      vars:
+        APP_CENTER_PROJECT: flutter_getx_template
+        APP_CENTER_USERNAME_ORGANIZATION: morellitecinfo-gmail.com
+        APP_CENTER_TOKEN: Encrypted(Z0FBQUFBQmd4MHlSVE5pMTdFWXMycjJEU3FiWGROZnJ3MjdRMUVXLVIyY3htQ2tOeHFUU2lKNGk2cS1VV21BWTh5MzNyd3JTSWJSRHJKejNxa1FHQ1NObWtxRDRDWkh0SWs3OVhpYU1yZHVpS01JQ3EyUjkxYUdyQW1BM3ZZY2xIQ05TQUdFVFdRWXo=)
+      flutter: 2.2.0
+      xcode: latest
+      cocoapods: default
+    cache:
+      cache_paths:
+        - $FLUTTER_ROOT/.pub-cache
+        - $FCI_BUILD_DIR/ios/Pods
+        - $FCI_BUILD_DIR/android/.gradle
+    triggering:
+      events:
+        - pull_request
+      branch_patterns:
+        - pattern: '*'
+          include: true
+          source: true
+    scripts:
+      - cp .env-sample .env # simple .env
+      - flutter packages pub get
+      - flutter pub run build_runner build --delete-conflicting-outputs
+      - flutter analyze
+      - flutter test
+    artifacts:
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - morellitecinfo@gmail.com
