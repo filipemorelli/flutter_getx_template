@@ -291,10 +291,9 @@ workflows:
       - brew install git-secret
       - |
         echo $KEY_PASS
-        echo $KEY_TEST
+        # echo $KEY_TEST
         echo $KEY_TEST > ./private_key.gpg
         cat ./private_key.gpg
-        printf "%s" > "$KEY_TEST"
       - gpg --import ./private_key.gpg
       - git secret reveal -f -p "$KEY_PASS"
       - flutter packages pub get
