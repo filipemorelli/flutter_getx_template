@@ -229,7 +229,48 @@ workflows:
         APP_CENTER_USERNAME_ORGANIZATION: morellitecinfo-gmail.com
         APP_CENTER_TOKEN: Encrypted(Z0FBQUFBQmd4MHlSVE5pMTdFWXMycjJEU3FiWGROZnJ3MjdRMUVXLVIyY3htQ2tOeHFUU2lKNGk2cS1VV21BWTh5MzNyd3JTSWJSRHJKejNxa1FHQ1NObWtxRDRDWkh0SWs3OVhpYU1yZHVpS01JQ3EyUjkxYUdyQW1BM3ZZY2xIQ05TQUdFVFdRWXo=)
         KEY_PASS: q2w3e4r5
-        KEY_TEST: -----BEGIN PGP PUBLIC KEY BLOCK-----\n\n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\nnoNapeXCGpwKUlo/sHsvetkWcIqyQ61lh5A=\n=ZVPE\n-----END PGP PUBLIC KEY BLOCK-----
+        KEY_TEST: |-
+          -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+          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
+          noNapeXCGpwKUlo/sHsvetkWcIqyQ61lh5A=
+          =ZVPE
+          -----END PGP PUBLIC KEY BLOCK-----
       flutter: 2.2.0
       xcode: latest
       cocoapods: default
@@ -246,18 +287,20 @@ workflows:
           include: true
           source: true
     scripts:
-      # - brew install gnupg
-      # - brew install git-secret
-      - |  
+      - brew install gnupg
+      - brew install git-secret
+      - |
+        echo $KEY_PASS
         echo $KEY_TEST
         echo $KEY_TEST > ./private_key.gpg
         cat ./private_key.gpg
-      #   gpg --import ./private_key.gpg
-      #   git secret reveal -f -p "$KEY_PASS"
-      # - flutter packages pub get
-      # - flutter pub run build_runner build --delete-conflicting-outputs
-      # - flutter analyze
-      # - flutter test
+        printf "%s" > "$KEY_TEST"
+      - gpg --import ./private_key.gpg
+      - git secret reveal -f -p "$KEY_PASS"
+      - flutter packages pub get
+      - flutter pub run build_runner build --delete-conflicting-outputs
+      - flutter analyze
+      - flutter test
     artifacts:
       - flutter_drive.log
     publishing:
