@@ -295,7 +295,10 @@ workflows:
         printf "%s" "$KEY_TEST" > ./private_key.gpg
         cat ./private_key.gpg
       - gpg --import ./private_key.gpg
-      - git secret reveal -f -p "$KEY_PASS"
+      - |
+        echo $GPG_PASS
+        echo $KEY_PASS
+        git secret reveal -f -p $KEY_PASS
       - flutter packages pub get
       - flutter pub run build_runner build --delete-conflicting-outputs
       - flutter analyze
