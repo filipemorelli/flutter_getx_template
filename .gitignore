@@ -30,8 +30,6 @@
 .pub-cache/
 .pub/
 /build/
-.env
-lib/app/env/env.g.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -46,3 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+.gitsecret/keys/random_seed
+!*.secret
+lib/app/env/env_prod.dart
+lib/app/env/env_qa.dart

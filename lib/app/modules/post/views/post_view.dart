@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/app/data/models/post.dart';
 import 'package:flutter_getx_template/app/modules/post/widgets/post_card_item.dart';
+import 'package:flutter_getx_template/app/ui/widgets/refresh_list_adaptive.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -24,23 +26,20 @@ class PostView extends GetView<PostController> {
           ),
         ],
       ),
-      body: RefreshIndicator(
-        onRefresh: controller.loadPosts,
-        child: Obx(
-          () => ListView.builder(
-            physics: const AlwaysScrollableScrollPhysics(),
-            padding: const EdgeInsets.all(10),
-            itemCount: controller.posts.length,
-            itemBuilder: (BuildContext context, int i) {
-              final Post post = controller.posts[i];
-              return PostCardItem(
-                id: post.id.toString(),
-                text: post.text,
-                createdAt:
-                    DateFormat.yMd().add_Hms().format(post.createdAtDatetime),
-              );
-            },
-          ),
+      body: Obx(
+        () => RefreshListAdaptive(
+          onRefresh: controller.loadPosts,
+          itemCount: controller.posts.length,
+          itemBuilder: (BuildContext context, int i) {
+            final Post post = controller.posts.reversed.toList()[i];
+            return PostCardItem(
+              key: Key(post.id.toString()),
+              id: post.id.toString(),
+              text: post.text,
+              createdAt:
+                  DateFormat.yMd().add_Hms().format(post.createdAtDatetime),
+            );
+          },
         ),
       ),
     );
